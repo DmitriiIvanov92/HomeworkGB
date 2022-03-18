@@ -7,16 +7,13 @@ adverbs = ["сегодня", "вчера", "завтра", "позавчера",
 adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
 
 from random import choice
-def get_jokes(number):
-    if number == 1:
-        return [f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}']
-    elif number == 2:
-        return [f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}',\
-               f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}']
-    else:
-        return [f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}',\
-               f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}',\
-               f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}']
+
+def get_jokes(number, jokes = None):
+    jokes = []
+    for i in range(number):
+        i = f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}'
+        jokes.append(i)
+    return print(jokes)
 
 
-print(get_jokes(3))
+get_jokes(int(input('Сколько шуток выдать ? ')))

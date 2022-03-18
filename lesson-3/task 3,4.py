@@ -3,7 +3,7 @@
  и возвращающую словарь, в котором ключи — первые буквы имён,
   а значения — списки, содержащие имена, начинающиеся с соответствующей буквы.'''
 
-thesaurus = ("Иван", "Мария", "Петр", "Илья")
+# thesaurus = ("Иван", "Мария", "Петр", "Илья")
 
 # def my_dict(*args):
 #     dict_names = {}
@@ -22,7 +22,7 @@ thesaurus = ("Иван", "Мария", "Петр", "Илья")
 
 
 # my_dict(thesaurus)
-
+# ------------------------------------------------------------
 '''Task 4:
  Написать функцию thesaurus_adv(),
  принимающую в качестве аргументов строки в формате «Имя Фамилия» и возвращающую словарь,
@@ -32,16 +32,18 @@ thesaurus = ("Иван", "Мария", "Петр", "Илья")
 
 thesaurus_adv = ("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева")
 
-def dict_in_dict(*args):
-    dict_external = {}
-    dict_internal = {}
-    my_map = list(map(str, *args))
-    print(my_map)
-    split = str(my_map).split(' ')
-    print(split[1])
-    for name in my_map:
-        dict_internal.setdefault(name[0], [])
-        dict_external.setdefault(name[5], dict_internal)
-    return print(dict_external)
+def thesaurus(*args):
+    my_dict_ln = {}
+    for i in args:
+        split_i = i.split(' ')
+        name = split_i[0]
+        l_name = split_i[1]
+        if l_name[0] not in my_dict_ln:
+            my_dict_ln[l_name[0]] = {}
+        if name[0] not in my_dict_ln[l_name[0]]:
+            my_dict_ln[l_name[0]][name[0]] = []
+        my_dict_ln[l_name[0]][name[0]].append(i)
+    return my_dict_ln
 
-dict_in_dict(thesaurus_adv)
+
+print(thesaurus(thesaurus_adv))

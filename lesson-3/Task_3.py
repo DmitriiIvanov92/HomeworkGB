@@ -1,25 +1,25 @@
-''' Task 3.
+""" Task 3.
 Написать функцию thesaurus(), принимающую в качестве аргументов имена сотрудников
  и возвращающую словарь, в котором ключи — первые буквы имён,
-  а значения — списки, содержащие имена, начинающиеся с соответствующей буквы.'''
+  а значения — списки, содержащие имена, начинающиеся с соответствующей буквы. """
 
-thesaurus = ("Иван", "Мария", "Петр", "Илья")
+names = ("Иван", "Мария", "Петр", "Илья")
 
-# def my_dict(*args):
-#     dict_names = {}
-#     for name in args:
-#         for str in name:
-#             dict_names.setdefault(str[0], []).append(str)
-#     return print(dict_names)
+def my_dict(*args):
+    dict_names = {}
+    for name in args:
+        for str in name:
+            dict_names.setdefault(str[0], []).append(str)
+    return dict_names
 
 
-# my_dict(thesaurus)
+print(my_dict(names))
 # -------------------------------------------------------- ИЛИ ТАК:
-# def my_dict(*args):
-#     dict_names = {}
-#     for name in list(*args):
-#         dict_names.setdefault(name[0], []).append(name)
-#     return print(dict_names)
-#
-#
-# my_dict(thesaurus)
+def my_dict(*names):
+    dict_names = {}
+    for name in names:
+        dict_names.setdefault(name[0], []).append(name)
+    return dict_names
+
+
+print(my_dict(*names))  # * - не забыть распаковать предварительно !

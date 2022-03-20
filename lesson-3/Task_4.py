@@ -9,12 +9,13 @@ thesaurus_adv = ("Иван Сергеев", "Инна Серова", "Петр �
 
 def thesaurus(*args):
     my_dict = {}
-    for i in list(*args):
-        i = i.split(' ')
-        name = i[0]
-        sername = i[1]
-        full_name = f'{name} {sername}'
-        my_dict.setdefault(sername[0], {}).setdefault(name[0], []).append(full_name)
+    for name_surname in list(*args):
+        name, surname = name_surname.split(' ')
+        full_name = f'{name} {surname}'
+        my_dict.setdefault(surname[0], {}).setdefault(name[0], []).append(full_name)
     return my_dict
+
+    # sorted_dict = {x: my_dict[x] for x in sorted(my_dict)}  # Dict Comprehensions
+    # return sorted_dict
 
 print(thesaurus(thesaurus_adv))

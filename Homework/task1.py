@@ -6,7 +6,8 @@ elif 60 <= duration < 3600:
 elif 3600 <= duration < 86400:
     print(duration // 3600, 'ч.', (duration % 3600) // 60, 'мин.', duration % 60, 'сек.')
 else:
-    print(duration // 86400, 'дн.', (duration % 86400) // 3600, 'ч.', (duration % 3600) // 60, 'мин.', duration % 60, 'сек.')
+    print(duration // 86400, 'дн.', (duration % 86400) // 3600, 'ч.',
+          (duration % 3600) // 60, 'мин.', duration % 60, 'сек.')
 
 # # ИЛИ
 # duration = int(input('Введите число в секундах : '))
